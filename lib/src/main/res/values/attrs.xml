@@ -2,5 +2,11 @@
 <resources>
     <declare-styleable name="ShadowWrapperFrameLayout">
         <attr name="capaxitShadowWrapperShadowHeight" format="dimension"/>
+        <attr name="capaxitShadowWrapperShadowSide">
+            <flag name="top" value="1"/>
+            <flag name="left" value="2"/>
+            <flag name="bottom" value="4"/>
+            <flag name="right" value="8"/>
+        </attr>
     </declare-styleable>
 </resources>

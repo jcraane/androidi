@@ -28,7 +28,8 @@
         android:padding="8dp"
         android:layout_gravity="center_horizontal"
         android:background="#3f50"
-        app:capaxitShadowWrapperShadowHeight="10dp">
+        app:capaxitShadowWrapperShadowSide="bottom|top|right"
+        app:capaxitShadowWrapperShadowHeight="4dp">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

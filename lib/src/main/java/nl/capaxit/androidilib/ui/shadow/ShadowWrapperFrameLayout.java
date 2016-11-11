@@ -10,6 +10,8 @@ import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
 
+import java.util.EnumSet;
+
 import nl.capaxit.androidilib.R;
 
 /**
@@ -19,6 +21,7 @@ public class ShadowWrapperFrameLayout extends FrameLayout {
     private static final int DEFAULT_SHADOW_HEIGHT = 3; // dp;
     private Drawable shadowDrawable;
     private int shadowHeight = -1;
+    private final EnumSet<Side> sides = EnumSet.noneOf(Side.class);
 
     public ShadowWrapperFrameLayout(final Context context) {
         this(context, null);
@@ -34,6 +37,13 @@ public class ShadowWrapperFrameLayout extends FrameLayout {
         final TypedArray attributes = context.obtainStyledAttributes(attrs, R.styleable.ShadowWrapperFrameLayout);
         if (attributes != null) {
             shadowHeight = attributes.getDimensionPixelSize(R.styleable.ShadowWrapperFrameLayout_capaxitShadowWrapperShadowHeight, -1);
+            final int shadowSides = attributes.getInt(R.styleable.ShadowWrapperFrameLayout_capaxitShadowWrapperShadowSide, -1);
+//            Convert attribute flags to enumset. The values of the enum correspond to the values in the attrs.xml.
+            for (final Side side : Side.values()) {
+                if ((shadowSides & side.value) == side.value) {
+                    sides.add(side);
+                }
+            }
             attributes.recycle();
         }
 
@@ -49,15 +59,31 @@ public class ShadowWrapperFrameLayout extends FrameLayout {
     @Override
     protected void onDraw(final Canvas canvas) {
         super.onDraw(canvas);
+        if (sides.contains(Side.TOP)) {
+            drawTopShadow(canvas);
+        }
+    }
+
+    private void drawTopShadow(final Canvas canvas) {
         final Rect shadowRect = new Rect(0, 0, getWidth(), shadowHeight);
         shadowDrawable.setBounds(shadowRect);
         Rect newRect = new Rect();
         canvas.getClipBounds(newRect);
-        newRect.inset(0, -1 * shadowHeight);  //make the rect larger
+        newRect.inset(0, -1 * shadowHeight);
         canvas.clipRect(newRect, Region.Op.REPLACE);
         canvas.save();
         canvas.translate(0, -1 * shadowHeight);
         shadowDrawable.draw(canvas);
         canvas.restore();
+    }
+
+    private enum Side {
+        TOP(1), LEFT(2), BOTTOM(4), RIGHT(8);
+
+        private final int value;
+
+        Side(final int value) {
+            this.value = value;
+        }
     }
 }
