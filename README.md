@@ -23,4 +23,4 @@ Example code:
 </nl.capaxit.androidilib.ui.shadow.ShadowWrapperFrameLayout>
 ```
 
-Output: <img src="/docs/img/dynamicShadows.png" width="216" height="385">
+Output: <img src="/docs/img/dynamicShadows.png" width="360" height="640">
