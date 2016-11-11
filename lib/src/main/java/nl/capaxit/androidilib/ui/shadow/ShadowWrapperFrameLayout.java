@@ -141,4 +141,10 @@ public final class ShadowWrapperFrameLayout extends FrameLayout {
         edgePaint.setShader(corner.getRadialGradient(getWidth(), getHeight(), shadowHeight, gradientColors));
         canvas.drawArc(new RectF(corner.getCornerRect(getWidth(), getHeight(), shadowHeight)), startAngle, (float) ShadowWrapperFrameLayout.CORNER_SHADOW_SWEEP_ANGLE, true, edgePaint);
     }
+
+    public void setShadowHeight(final int shadowHeight) {
+        this.shadowHeight = shadowHeight;
+        invalidate();
+        requestLayout();
+    }
 }
