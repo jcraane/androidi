@@ -12,7 +12,6 @@ import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
 
-import java.util.Arrays;
 import java.util.EnumMap;
 import java.util.EnumSet;
 import java.util.Map;
@@ -118,16 +117,16 @@ public class ShadowWrapperFrameLayout extends FrameLayout {
     }
 
     private void drawCorners(final Canvas canvas) {
-        if (sides.containsAll(Arrays.asList(Side.TOP, Side.RIGHT))) {
+        if (sides.contains(Side.TOP) && sides.contains(Side.RIGHT)) {
             drawCornerShadow(canvas, Corner.TOP_RIGHT, 270, 90);
         }
-        if (sides.containsAll(Arrays.asList(Side.BOTTOM, Side.RIGHT))) {
+        if (sides.contains(Side.BOTTOM) && sides.contains(Side.RIGHT)) {
             drawCornerShadow(canvas, Corner.BOTTOM_RIGHT, 0, 90);
         }
-        if (sides.containsAll(Arrays.asList(Side.TOP, Side.LEFT))) {
+        if (sides.contains(Side.TOP) && sides.contains(Side.LEFT)) {
             drawCornerShadow(canvas, Corner.TOP_LEFT, 180, 90);
         }
-        if (sides.containsAll(Arrays.asList(Side.BOTTOM, Side.LEFT))) {
+        if (sides.contains(Side.BOTTOM) && sides.contains(Side.LEFT)) {
             drawCornerShadow(canvas, Corner.BOTTOM_LEFT, 90, 90);
         }
     }
