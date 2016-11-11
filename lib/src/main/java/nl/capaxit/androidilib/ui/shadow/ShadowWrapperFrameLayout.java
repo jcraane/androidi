@@ -3,7 +3,6 @@ package nl.capaxit.androidilib.ui.shadow;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.RectF;
@@ -98,7 +97,6 @@ public class ShadowWrapperFrameLayout extends FrameLayout {
 
     private Paint createEdgePaint() {
         final Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        paint.setColor(Color.parseColor("#ff5000"));
         paint.setStyle(Paint.Style.FILL);
         return paint;
     }
