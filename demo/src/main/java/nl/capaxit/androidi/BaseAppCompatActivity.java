@@ -36,10 +36,9 @@ public class BaseAppCompatActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case android.R.id.home:
                 ActivityCompat.finishAfterTransition(this);
-//                    finish();
                 return true;
+            default:
+                return false;
         }
-
-        return false;
     }
 }

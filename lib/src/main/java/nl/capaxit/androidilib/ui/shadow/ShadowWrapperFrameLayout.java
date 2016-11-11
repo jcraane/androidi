@@ -45,14 +45,15 @@ import nl.capaxit.androidilib.R;
  * <p>
  * Created by jamiecraane on 10/11/2016.
  */
-public class ShadowWrapperFrameLayout extends FrameLayout {
+public final class ShadowWrapperFrameLayout extends FrameLayout {
     private static final int DEFAULT_SHADOW_HEIGHT = 3; // dp;
+    private static final int CORNER_SHADOW_SWEEP_ANGLE = 90;
     private int shadowHeight = -1;
     private final EnumSet<Side> sides = EnumSet.noneOf(Side.class);
     private final Map<Side, Drawable> shadowDrawables = new EnumMap<>(Side.class);
     private final Rect clipBounds = new Rect();
-    private Paint edgePaint;
-    private int[] gradientColors = new int[2];
+    private final Paint edgePaint;
+    private final int[] gradientColors = new int[2];
 
     public ShadowWrapperFrameLayout(final Context context) {
         this(context, null);
@@ -117,22 +118,27 @@ public class ShadowWrapperFrameLayout extends FrameLayout {
     }
 
     private void drawCorners(final Canvas canvas) {
+        final EnumSet<Corner> shadowsToDraw = EnumSet.noneOf(Corner.class);
         if (sides.contains(Side.TOP) && sides.contains(Side.RIGHT)) {
-            drawCornerShadow(canvas, Corner.TOP_RIGHT, 270, 90);
+            shadowsToDraw.add(Corner.TOP_RIGHT);
         }
         if (sides.contains(Side.BOTTOM) && sides.contains(Side.RIGHT)) {
-            drawCornerShadow(canvas, Corner.BOTTOM_RIGHT, 0, 90);
+            shadowsToDraw.add(Corner.BOTTOM_RIGHT);
         }
         if (sides.contains(Side.TOP) && sides.contains(Side.LEFT)) {
-            drawCornerShadow(canvas, Corner.TOP_LEFT, 180, 90);
+            shadowsToDraw.add(Corner.TOP_LEFT);
         }
         if (sides.contains(Side.BOTTOM) && sides.contains(Side.LEFT)) {
-            drawCornerShadow(canvas, Corner.BOTTOM_LEFT, 90, 90);
+            shadowsToDraw.add(Corner.BOTTOM_LEFT);
+        }
+
+        for (final Corner corner : shadowsToDraw) {
+            drawCornerShadow(canvas, corner, corner.startAngle);
         }
     }
 
-    private void drawCornerShadow(final Canvas canvas, final Corner corner, final float startAngle, final float sweepAngle) {
+    private void drawCornerShadow(final Canvas canvas, final Corner corner, final float startAngle) {
         edgePaint.setShader(corner.getRadialGradient(getWidth(), getHeight(), shadowHeight, gradientColors));
-        canvas.drawArc(new RectF(corner.getCornerRect(getWidth(), getHeight(), shadowHeight)), startAngle, sweepAngle, true, edgePaint);
+        canvas.drawArc(new RectF(corner.getCornerRect(getWidth(), getHeight(), shadowHeight)), startAngle, (float) ShadowWrapperFrameLayout.CORNER_SHADOW_SWEEP_ANGLE, true, edgePaint);
     }
 }

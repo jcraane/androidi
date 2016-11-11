@@ -13,7 +13,7 @@ enum Side {
         }
 
         @Override
-        void inset(final Rect rect, int shadowHeight) {
+        void inset(final Rect rect, final int shadowHeight) {
             rect.inset(0, -1 * shadowHeight);
         }
     },
@@ -24,7 +24,7 @@ enum Side {
         }
 
         @Override
-        void inset(final Rect rect, int shadowHeight) {
+        void inset(final Rect rect, final int shadowHeight) {
             rect.inset(-1 * shadowHeight, 0);
         }
     },
@@ -35,7 +35,7 @@ enum Side {
         }
 
         @Override
-        void inset(final Rect rect, int shadowHeight) {
+        void inset(final Rect rect, final int shadowHeight) {
             rect.inset(0, -1 * shadowHeight);
         }
     },
@@ -46,7 +46,7 @@ enum Side {
         }
 
         @Override
-        void inset(final Rect rect, int shadowHeight) {
+        void inset(final Rect rect, final int shadowHeight) {
             rect.inset(-1 * shadowHeight, 0);
         }
     };
