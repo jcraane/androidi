@@ -44,7 +44,7 @@
     <nl.capaxit.androidilib.ui.shadow.ShadowWrapperFrameLayout
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:background="#50f"
+        android:background="#aff"
         android:padding="8dp"
         app:capaxitShadowWrapperShadowHeight="4dp"
         app:capaxitShadowWrapperShadowSide="top|bottom|right"
@@ -59,9 +59,9 @@
     <nl.capaxit.androidilib.ui.shadow.ShadowWrapperFrameLayout
         android:layout_width="150dp"
         android:layout_height="50dp"
-        android:background="#0f5"
+        android:background="#ffa"
         android:padding="8dp"
-        app:capaxitShadowWrapperShadowHeight="4dp"
+        app:capaxitShadowWrapperShadowHeight="7dp"
         app:capaxitShadowWrapperShadowSide="top|left"
         android:layout_marginLeft="50dp"
         android:layout_marginTop="20dp">

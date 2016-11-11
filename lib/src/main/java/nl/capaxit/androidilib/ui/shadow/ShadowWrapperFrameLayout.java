@@ -88,7 +88,7 @@ public class ShadowWrapperFrameLayout extends FrameLayout {
 
         if (shadowHeight == -1) {
             final float density = context.getResources().getDisplayMetrics().density;
-            shadowHeight = (int) (DEFAULT_SHADOW_HEIGHT * density + 0.5f);
+            shadowHeight = (int) (DEFAULT_SHADOW_HEIGHT * density);
         }
 
         setWillNotDraw(false);
