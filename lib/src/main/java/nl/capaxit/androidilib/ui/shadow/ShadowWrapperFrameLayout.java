@@ -17,7 +17,31 @@ import java.util.Map;
 import nl.capaxit.androidilib.R;
 
 /**
+ * FrameLayout which is able to draw shadows around its outer edges. Example:
+ *
+ * <code>
+ *     <nl.capaxit.androidilib.ui.shadow.ShadowWrapperFrameLayout
+         android:layout_marginTop="20dp"
+         android:layout_width="100dp"
+         android:layout_height="100dp"
+         android:padding="8dp"
+         android:layout_gravity="center_horizontal"
+         android:background="#3f50"
+         app:capaxitShadowWrapperShadowSide="bottom|top|left|right"
+         app:capaxitShadowWrapperShadowHeight="4dp">
+
+            <TextView
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:text="Demo"/>
+         </nl.capaxit.androidilib.ui.shadow.ShadowWrapperFrameLayout>
+ * </code>
+ *
+ * capaxitShadowWrapperShadowHeight controls the size of the shadow.
+ * capaxitShadowWrapperShadowSide controls to which sides a shadow is applied.
+ *
  * todo shadow is not present on the corners at the moment when two shadows come together. Perhaps we can solve this by drawing a radial gradient at the corners where two shadows collide.
+ * todo make shadow drawables configurable in a future release.
  *
  * Created by jamiecraane on 10/11/2016.
  */
