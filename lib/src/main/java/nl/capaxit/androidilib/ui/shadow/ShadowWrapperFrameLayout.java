@@ -118,21 +118,21 @@ public final class ShadowWrapperFrameLayout extends FrameLayout {
     }
 
     private void drawCorners(final Canvas canvas) {
-        final EnumSet<Corner> shadowsToDraw = EnumSet.noneOf(Corner.class);
+        final EnumSet<Corner> cornersToDraw = EnumSet.noneOf(Corner.class);
         if (sides.contains(Side.TOP) && sides.contains(Side.RIGHT)) {
-            shadowsToDraw.add(Corner.TOP_RIGHT);
+            cornersToDraw.add(Corner.TOP_RIGHT);
         }
         if (sides.contains(Side.BOTTOM) && sides.contains(Side.RIGHT)) {
-            shadowsToDraw.add(Corner.BOTTOM_RIGHT);
+            cornersToDraw.add(Corner.BOTTOM_RIGHT);
         }
         if (sides.contains(Side.TOP) && sides.contains(Side.LEFT)) {
-            shadowsToDraw.add(Corner.TOP_LEFT);
+            cornersToDraw.add(Corner.TOP_LEFT);
         }
         if (sides.contains(Side.BOTTOM) && sides.contains(Side.LEFT)) {
-            shadowsToDraw.add(Corner.BOTTOM_LEFT);
+            cornersToDraw.add(Corner.BOTTOM_LEFT);
         }
 
-        for (final Corner corner : shadowsToDraw) {
+        for (final Corner corner : cornersToDraw) {
             drawCornerShadow(canvas, corner, corner.startAngle);
         }
     }
