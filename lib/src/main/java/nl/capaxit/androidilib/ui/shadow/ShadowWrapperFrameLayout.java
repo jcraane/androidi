@@ -5,11 +5,9 @@ import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.graphics.RadialGradient;
 import android.graphics.Rect;
 import android.graphics.RectF;
 import android.graphics.Region;
-import android.graphics.Shader;
 import android.graphics.drawable.Drawable;
 import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
@@ -118,27 +116,26 @@ public class ShadowWrapperFrameLayout extends FrameLayout {
             shadowDrawable.draw(canvas);
         }
 
+        drawCorners(canvas);
+    }
+
+    private void drawCorners(final Canvas canvas) {
         if (sides.containsAll(Arrays.asList(Side.TOP, Side.RIGHT))) {
-            final RadialGradient radialGradient = new RadialGradient(getWidth(), 0, shadowHeight * 2, gradientColors, new float[]{0, 0.5f}, Shader.TileMode.CLAMP);
-            edgePaint.setShader(radialGradient);
-            canvas.drawArc(new RectF(getWidth() - shadowHeight, shadowHeight * -1, getWidth() + shadowHeight, 0 + shadowHeight), 270, 90, true, edgePaint);
+            drawCornerShadow(canvas, Corner.TOP_RIGHT, 270, 90);
         }
         if (sides.containsAll(Arrays.asList(Side.BOTTOM, Side.RIGHT))) {
-            final RadialGradient radialGradient = new RadialGradient(getWidth(), getHeight(), shadowHeight * 2, gradientColors, new float[]{0, 0.5f}, Shader.TileMode.CLAMP);
-            edgePaint.setShader(radialGradient);
-            canvas.drawArc(new RectF(getWidth() - shadowHeight, getHeight() - shadowHeight, getWidth() + shadowHeight, getHeight() + shadowHeight), 0, 90, true, edgePaint);
+            drawCornerShadow(canvas, Corner.BOTTOM_RIGHT, 0, 90);
         }
         if (sides.containsAll(Arrays.asList(Side.TOP, Side.LEFT))) {
-            final RadialGradient radialGradient = new RadialGradient(0, 0, shadowHeight * 2, gradientColors, new float[]{0, 0.5f}, Shader.TileMode.CLAMP);
-            edgePaint.setShader(radialGradient);
-            canvas.drawArc(new RectF(0 - shadowHeight, 0 - shadowHeight, shadowHeight, shadowHeight), 180, 90, true, edgePaint
-            );
+            drawCornerShadow(canvas, Corner.TOP_LEFT, 180, 90);
         }
         if (sides.containsAll(Arrays.asList(Side.BOTTOM, Side.LEFT))) {
-            final RadialGradient radialGradient = new RadialGradient(0, getHeight(), shadowHeight * 2, gradientColors, new float[]{0, 0.5f}, Shader.TileMode.CLAMP);
-            edgePaint.setShader(radialGradient);
-            canvas.drawArc(new RectF(0 - shadowHeight, getHeight() - shadowHeight, 0 + shadowHeight, getHeight() + shadowHeight), 90, 90, true, edgePaint);
+            drawCornerShadow(canvas, Corner.BOTTOM_LEFT, 90, 90);
         }
     }
 
+    private void drawCornerShadow(final Canvas canvas, final Corner corner, final float startAngle, final float sweepAngle) {
+        edgePaint.setShader(corner.getRadialGradient(getWidth(), getHeight(), shadowHeight, gradientColors));
+        canvas.drawArc(new RectF(corner.getCornerRect(getWidth(), getHeight(), shadowHeight)), startAngle, sweepAngle, true, edgePaint);
+    }
 }
