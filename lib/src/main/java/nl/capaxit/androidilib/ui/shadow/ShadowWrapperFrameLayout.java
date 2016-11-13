@@ -40,7 +40,6 @@ import nl.capaxit.androidilib.R;
  * <p>
  * <p>
  *
- * todo: research: draw normal rect using canvas instead of gradient drawable.
  * todo: small optimization. Divide arcs in two so we get nice 45 degrees edges.
  *
  * Created by jamiecraane on 10/11/2016.
