@@ -1,6 +1,8 @@
 package nl.capaxit.androidilib.ui.shadow;
 
+import android.graphics.LinearGradient;
 import android.graphics.Rect;
+import android.graphics.Shader;
 
 /**
  * Created by jamiecraane on 11/11/2016.
@@ -16,6 +18,11 @@ enum Side {
         void inset(final Rect rect, final int shadowHeight) {
             rect.inset(0, -1 * shadowHeight);
         }
+
+        @Override
+        LinearGradient getShadowGradient(final int shadowHeight, final int width, final int height, final int[] gradientColors) {
+            return new LinearGradient(0, 0, 0, -1 * shadowHeight, gradientColors[0], gradientColors[1], Shader.TileMode.CLAMP);
+        }
     },
     LEFT(2) {
         @Override
@@ -26,6 +33,11 @@ enum Side {
         @Override
         void inset(final Rect rect, final int shadowHeight) {
             rect.inset(-1 * shadowHeight, 0);
+        }
+
+        @Override
+        LinearGradient getShadowGradient(final int shadowHeight, final int width, final int height, final int[] gradientColors) {
+            return new LinearGradient(0, 0, -1 * shadowHeight, 0, gradientColors[0], gradientColors[1], Shader.TileMode.CLAMP);
         }
     },
     BOTTOM(4) {
@@ -38,6 +50,11 @@ enum Side {
         void inset(final Rect rect, final int shadowHeight) {
             rect.inset(0, -1 * shadowHeight);
         }
+
+        @Override
+        LinearGradient getShadowGradient(final int shadowHeight, final int width, final int height, final int[] gradientColors) {
+            return new LinearGradient(0, height, 0, height + shadowHeight, gradientColors[0], gradientColors[1], Shader.TileMode.CLAMP);
+        }
     },
     RIGHT(8) {
         @Override
@@ -48,6 +65,11 @@ enum Side {
         @Override
         void inset(final Rect rect, final int shadowHeight) {
             rect.inset(-1 * shadowHeight, 0);
+        }
+
+        @Override
+        LinearGradient getShadowGradient(final int shadowHeight, final int width, final int height, final int[] gradientColors) {
+            return new LinearGradient(width, 0, width + shadowHeight, 0, gradientColors[0], gradientColors[1], Shader.TileMode.CLAMP);
         }
     };
 
@@ -60,4 +82,6 @@ enum Side {
     abstract Rect getShadowRect(int width, int height, int shadowHeight);
 
     abstract void inset(Rect rect, int shadowHeight);
+
+    abstract LinearGradient getShadowGradient(int shadowHeight, int width, int height, int[] gradientColors);
 }
