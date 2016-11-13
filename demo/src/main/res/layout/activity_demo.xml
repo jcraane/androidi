@@ -37,7 +37,7 @@
             android:text="all"/>
     </nl.capaxit.androidilib.ui.shadow.ShadowWrapperFrameLayout>
 
-    <nl.capaxit.androidilib.ui.shadow.TopShadowView
+    <nl.capaxit.androidilib.ui.shadow.view.TopShadowView
         android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="5dp"/>

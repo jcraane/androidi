@@ -1,4 +1,4 @@
-package nl.capaxit.androidilib.ui.shadow;
+package nl.capaxit.androidilib.ui.shadow.view;
 
 import android.content.Context;
 import android.support.v4.content.ContextCompat;
