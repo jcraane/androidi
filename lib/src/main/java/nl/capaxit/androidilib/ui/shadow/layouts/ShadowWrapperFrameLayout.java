@@ -1,4 +1,4 @@
-package nl.capaxit.androidilib.ui.shadow;
+package nl.capaxit.androidilib.ui.shadow.layouts;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -9,10 +9,9 @@ import android.graphics.Region;
 import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
+import nl.capaxit.androidilib.R;
 
 import java.util.EnumSet;
-
-import nl.capaxit.androidilib.R;
 
 /**
  * FrameLayout which is able to draw shadows around its outer edges. Example:
@@ -67,8 +66,8 @@ public final class ShadowWrapperFrameLayout extends FrameLayout {
 
         final TypedArray attributes = context.obtainStyledAttributes(attrs, R.styleable.ShadowWrapperFrameLayout);
         if (attributes != null) {
-            shadowHeight = attributes.getDimensionPixelSize(R.styleable.ShadowWrapperFrameLayout_capaxitShadowWrapperShadowHeight, -1);
-            final int shadowSides = attributes.getInt(R.styleable.ShadowWrapperFrameLayout_capaxitShadowWrapperShadowSide, -1);
+            shadowHeight = attributes.getDimensionPixelSize(R.styleable.ShadowWrapperFrameLayout_capaxitShadowWrapperFrameShadowHeight, -1);
+            final int shadowSides = attributes.getInt(R.styleable.ShadowWrapperFrameLayout_capaxitShadowWrapperFrameShadowSide, -1);
 //            Convert attribute flags to enumset. The values of the enum correspond to the values in the attrs.xml.
             for (final Side side : Side.values()) {
                 if ((shadowSides & side.value) == side.value) {

@@ -5,7 +5,7 @@ import android.animation.ValueAnimator;
 import android.os.Bundle;
 import android.view.View;
 
-import nl.capaxit.androidilib.ui.shadow.ShadowWrapperFrameLayout;
+import nl.capaxit.androidilib.ui.shadow.layouts.ShadowWrapperFrameLayout;
 
 public class DemoActivity extends BaseAppCompatActivity {
     private ShadowWrapperFrameLayout shadowWrapperFrameLayout;

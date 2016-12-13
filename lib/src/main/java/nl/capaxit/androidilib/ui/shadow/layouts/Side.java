@@ -1,4 +1,4 @@
-package nl.capaxit.androidilib.ui.shadow;
+package nl.capaxit.androidilib.ui.shadow.layouts;
 
 import android.graphics.LinearGradient;
 import android.graphics.Rect;

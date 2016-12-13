@@ -21,7 +21,7 @@
             app:popupTheme="@style/AppTheme.PopupOverlay"/>
     </android.support.design.widget.AppBarLayout>
 
-    <nl.capaxit.androidilib.ui.shadow.ShadowWrapperFrameLayout
+    <nl.capaxit.androidilib.ui.shadow.layouts.ShadowWrapperFrameLayout
         android:id="@+id/shadowFrameLayout"
         android:layout_marginTop="20dp"
         android:layout_width="100dp"
@@ -29,48 +29,48 @@
         android:padding="8dp"
         android:layout_gravity="center_horizontal"
         android:background="#3f50"
-        app:capaxitShadowWrapperShadowSide="bottom|top|left|right"
-        app:capaxitShadowWrapperShadowHeight="4dp">
+        app:capaxitShadowWrapperFrameShadowSide="bottom|top|left|right"
+        app:capaxitShadowWrapperFrameShadowHeight="4dp">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="all"/>
-    </nl.capaxit.androidilib.ui.shadow.ShadowWrapperFrameLayout>
+    </nl.capaxit.androidilib.ui.shadow.layouts.ShadowWrapperFrameLayout>
 
     <nl.capaxit.androidilib.ui.shadow.view.TopShadowView
         android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="5dp"/>
 
-    <nl.capaxit.androidilib.ui.shadow.ShadowWrapperFrameLayout
+    <nl.capaxit.androidilib.ui.shadow.layouts.ShadowWrapperFrameLayout
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:background="#aff"
         android:padding="8dp"
-        app:capaxitShadowWrapperShadowHeight="4dp"
-        app:capaxitShadowWrapperShadowSide="top|bottom|right"
+        app:capaxitShadowWrapperFrameShadowHeight="4dp"
+        app:capaxitShadowWrapperFrameShadowSide="top|bottom|right"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="20dp">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="top|bottom|right"/>
-    </nl.capaxit.androidilib.ui.shadow.ShadowWrapperFrameLayout>
+    </nl.capaxit.androidilib.ui.shadow.layouts.ShadowWrapperFrameLayout>
 
-    <nl.capaxit.androidilib.ui.shadow.ShadowWrapperFrameLayout
+    <nl.capaxit.androidilib.ui.shadow.layouts.ShadowWrapperFrameLayout
         android:layout_width="150dp"
         android:layout_height="50dp"
         android:background="#ffa"
         android:padding="8dp"
-        app:capaxitShadowWrapperShadowHeight="7dp"
-        app:capaxitShadowWrapperShadowSide="top|left"
+        app:capaxitShadowWrapperFrameShadowHeight="7dp"
+        app:capaxitShadowWrapperFrameShadowSide="top|left"
         android:layout_marginLeft="50dp"
         android:layout_marginTop="20dp">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="top|left"/>
-    </nl.capaxit.androidilib.ui.shadow.ShadowWrapperFrameLayout>
+    </nl.capaxit.androidilib.ui.shadow.layouts.ShadowWrapperFrameLayout>
 
     <Button
         android:id="@+id/start"
@@ -78,4 +78,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="start"/>
+
+    <nl.capaxit.androidilib.ui.shadow.layouts.ShadowWrapperRelativeLayout
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="#999"
+            app:capaxitShadowWrapperRelativeShadowSide="bottom"/>
 </LinearLayout>
