@@ -38,9 +38,9 @@ import java.util.EnumSet;
  * capaxitShadowWrapperShadowSide controls to which sides a shadow is applied.
  * <p>
  * <p>
- *
+ * <p>
  * todo: small optimization. Divide arcs in two so we get nice 45 degrees edges.
- *
+ * <p>
  * Created by jamiecraane on 10/11/2016.
  */
 public class ShadowWrapperLinearLayout extends LinearLayout {
@@ -139,5 +139,14 @@ public class ShadowWrapperLinearLayout extends LinearLayout {
         this.shadowHeight = shadowHeight;
         invalidate();
         requestLayout();
+    }
+
+    public void setSides(final EnumSet<Side> sides) {
+        if (sides != null) {
+            this.sides.clear();
+            this.sides.addAll(sides);
+            invalidate();
+            requestLayout();
+        }
     }
 }

@@ -140,4 +140,13 @@ public class ShadowWrapperFrameLayout extends FrameLayout {
         invalidate();
         requestLayout();
     }
+
+    public void setSides(final EnumSet<Side> sides) {
+        if (sides != null) {
+            this.sides.clear();
+            this.sides.addAll(sides);
+            invalidate();
+            requestLayout();
+        }
+    }
 }
