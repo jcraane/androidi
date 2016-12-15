@@ -43,7 +43,7 @@ import java.util.EnumSet;
  *
  * Created by jamiecraane on 10/11/2016.
  */
-public final class ShadowWrapperLinearLayout extends LinearLayout {
+public class ShadowWrapperLinearLayout extends LinearLayout {
     private static final int DEFAULT_SHADOW_HEIGHT = 3; // dp;
     private static final int CORNER_SHADOW_SWEEP_ANGLE = 90;
     private int shadowHeight = -1;
