@@ -7,7 +7,7 @@ import android.graphics.Shader;
 /**
  * Created by jamiecraane on 11/11/2016.
  */
-enum Side {
+public enum Side {
     TOP(1) {
         @Override
         Rect getShadowRect(final int width, final int height, final int shadowHeight) {
